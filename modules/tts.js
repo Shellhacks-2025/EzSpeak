@@ -179,7 +179,7 @@ export function createTTSEngine({ SpeechSDK, creds, targetLanguage, voiceMap = D
   function speak(text, lang = targetLanguage) {
     if (disposed || !enabled || !text || !text.trim()) return;
     const trimmed = text.trim();
-    queue.push({ text: trimmed.length > 500 ? trimmed.slice(0, 500) : trimmed, lang });
+    queue.push({ text: trimmed.length > 100 ? trimmed.slice(0, 100) : trimmed, lang });
     emit('queue', { size: queue.length });
     dequeue();
   }
